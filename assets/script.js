@@ -82,6 +82,11 @@ function setLoading(isLoading) {
 
 function showConfirmation() {
   form.hidden = true;
+  // Hide the form's heading/intro so only the thank-you remains.
+  const heading = document.getElementById("form-title");
+  const intro = document.querySelector(".form-intro");
+  if (heading) heading.hidden = true;
+  if (intro) intro.hidden = true;
   confirmationEl.hidden = false;
   confirmationEl.scrollIntoView({ behavior: "smooth", block: "center" });
 }

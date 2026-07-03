@@ -1,22 +1,32 @@
 /* =========================================================================
    Michael & Lucia — Save the Date
+   Palette (from the couple's board):
+     EAD4C4 cream · 492F1E Van Dyke brown · D3A5A5 pink ·
+     AF7978 mauve · 7A7930 reseda-olive
    Mobile-first, responsive. Base styles target phones; the media query
    near the bottom enhances the layout for larger screens.
    ========================================================================= */
 
 :root {
-  --ivory:      #fbf6ef;
-  --cream:      #f4ead9;
-  --ink:        #3a2c30;
-  --ink-soft:   #6b585d;
-  --plum:       #7c3a4d;
-  --plum-dark:  #5f2b3a;
-  --rose:       #c98a8a;
-  --gold:       #b98a4b;
-  --line:       #e4d5c6;
-  --error:      #b4402f;
-  --radius:     16px;
-  --shadow:     0 18px 40px -22px rgba(58, 44, 48, 0.45);
+  --cream:       #ead4c4;  /* borders, hero band, dividers      */
+  --cream-bg:    #f7efe7;  /* page background (lightened cream)  */
+  --card:        #fffbf6;  /* form card                          */
+  --field:       #fbf4ec;  /* input background                   */
+
+  --brown:       #492f1e;  /* headings, body strong, button      */
+  --brown-dark:  #35200f;
+  --ink:         #4a3526;  /* body text                          */
+  --ink-soft:    #7c6152;  /* muted text                         */
+
+  --rose:        #d3a5a5;  /* soft accent, rings, rules          */
+  --mauve:       #af7978;  /* accent, ampersand, borders         */
+  --mauve-deep:  #9a6260;  /* mauve used as readable text        */
+  --olive:       #7a7930;  /* botanical accent (check, details)  */
+  --olive-deep:  #5f5e27;  /* olive used as small text           */
+
+  --error:       #a8432f;
+  --radius:      16px;
+  --shadow:      0 18px 40px -22px rgba(73, 47, 30, 0.5);
 }
 
 *,
@@ -31,7 +41,7 @@ body {
   font-weight: 300;
   color: var(--ink);
   background:
-    radial-gradient(120% 80% at 50% -10%, var(--cream) 0%, var(--ivory) 55%) fixed;
+    radial-gradient(125% 80% at 50% -10%, var(--cream) 0%, var(--cream-bg) 58%) fixed;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -57,7 +67,7 @@ body {
   letter-spacing: 0.42em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--gold);
+  color: var(--olive-deep);
 }
 
 /* decorative rule under the eyebrow */
@@ -67,14 +77,14 @@ body {
   width: 52px;
   height: 1px;
   margin: 0.9rem auto 0;
-  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+  background: linear-gradient(90deg, transparent, var(--mauve), transparent);
 }
 
 h1 {
   margin: 0;
   font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-weight: 600;
-  color: var(--plum);
+  color: var(--brown);
   line-height: 1.04;
 }
 
@@ -85,7 +95,7 @@ h1 {
 }
 
 .names .amp {
-  color: var(--rose);
+  color: var(--mauve);
   font-style: italic;
   padding: 0 0.12em;
 }
@@ -96,7 +106,7 @@ h1 {
   font-size: clamp(1.25rem, 6vw, 1.75rem);
   font-weight: 500;
   font-style: italic;
-  color: var(--ink);
+  color: var(--brown);
 }
 
 .announcement {
@@ -110,8 +120,8 @@ h1 {
 .save-line {
   margin: 1.6rem 0 !important;
   padding: 1.1rem 1rem;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--cream);
+  border-bottom: 1px solid var(--cream);
 }
 
 .save-season {
@@ -119,7 +129,7 @@ h1 {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(1.7rem, 8vw, 2.3rem);
   font-weight: 600;
-  color: var(--plum);
+  color: var(--brown);
   line-height: 1.15;
 }
 
@@ -128,7 +138,7 @@ h1 {
   font-size: 0.82rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--olive-deep);
   margin-top: 0.35rem;
 }
 
@@ -136,14 +146,14 @@ h1 {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
   font-size: 1.35rem;
-  color: var(--plum);
+  color: var(--mauve-deep);
   margin-top: 1.6rem !important;
 }
 
 /* --------------------------------------------------------------- Form --- */
 .form-card {
-  background: #fffdfa;
-  border: 1px solid var(--line);
+  background: var(--card);
+  border: 1px solid var(--cream);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: clamp(1.4rem, 6vw, 2.25rem);
@@ -155,7 +165,7 @@ h1 {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 600;
   font-size: clamp(1.6rem, 7vw, 2rem);
-  color: var(--plum);
+  color: var(--brown);
   text-align: center;
 }
 
@@ -198,29 +208,29 @@ input {
   font-weight: 300;
   color: var(--ink);
   padding: 0.8rem 0.9rem;
-  background: var(--ivory);
-  border: 1px solid var(--line);
+  background: var(--field);
+  border: 1px solid var(--cream);
   border-radius: 10px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   -webkit-appearance: none;
   appearance: none;
 }
 
-input::placeholder { color: #b7a79c; }
+input::placeholder { color: #b9a595; }
 
 input:focus {
   outline: none;
-  background: #fffdfa;
-  border-color: var(--rose);
-  box-shadow: 0 0 0 3px rgba(201, 138, 138, 0.22);
+  background: var(--card);
+  border-color: var(--mauve);
+  box-shadow: 0 0 0 3px rgba(211, 165, 165, 0.35);
 }
 
 input.invalid {
   border-color: var(--error);
-  background: #fdf3f1;
+  background: #fbf1ee;
 }
 input.invalid:focus {
-  box-shadow: 0 0 0 3px rgba(180, 64, 47, 0.18);
+  box-shadow: 0 0 0 3px rgba(168, 67, 47, 0.18);
 }
 
 .error {
@@ -241,19 +251,19 @@ input.invalid:focus {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #fff;
-  background: linear-gradient(180deg, var(--plum), var(--plum-dark));
+  color: var(--cream-bg);
+  background: linear-gradient(180deg, var(--brown), var(--brown-dark));
   border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.08s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-  box-shadow: 0 12px 24px -12px rgba(124, 58, 77, 0.7);
+  box-shadow: 0 12px 24px -12px rgba(73, 47, 30, 0.7);
 }
 
-.submit-btn:hover { box-shadow: 0 16px 28px -12px rgba(124, 58, 77, 0.75); }
+.submit-btn:hover { box-shadow: 0 16px 28px -12px rgba(73, 47, 30, 0.8); }
 .submit-btn:active { transform: translateY(1px); }
 .submit-btn:focus-visible {
-  outline: 3px solid var(--rose);
+  outline: 3px solid var(--mauve);
   outline-offset: 2px;
 }
 
@@ -297,9 +307,9 @@ input.invalid:focus {
   place-items: center;
   font-size: 1.9rem;
   color: #fff;
-  background: linear-gradient(180deg, var(--plum), var(--plum-dark));
+  background: linear-gradient(180deg, var(--olive), var(--olive-deep));
   border-radius: 50%;
-  box-shadow: 0 14px 26px -12px rgba(124, 58, 77, 0.75);
+  box-shadow: 0 14px 26px -12px rgba(95, 94, 39, 0.75);
 }
 
 .confirmation h2 {
@@ -307,7 +317,7 @@ input.invalid:focus {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 600;
   font-size: clamp(1.8rem, 8vw, 2.3rem);
-  color: var(--plum);
+  color: var(--brown);
 }
 
 .confirmation p {
@@ -320,7 +330,7 @@ input.invalid:focus {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
   font-size: 1.25rem;
-  color: var(--plum);
+  color: var(--mauve-deep);
   margin-top: 0.4rem !important;
 }
 
@@ -336,8 +346,8 @@ input.invalid:focus {
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-soft);
-  opacity: 0.8;
+  color: var(--olive-deep);
+  opacity: 0.9;
 }
 
 /* --------------------------------------------------- Larger screens --- */
