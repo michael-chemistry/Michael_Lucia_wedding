@@ -60,24 +60,22 @@ Use **File → Download → CSV** anytime for a mail-merge export.
 
 ## B. Publish the website (GitHub Pages — free)
 
-The repo already includes a workflow (`.github/workflows/deploy.yml`) that
-publishes the site automatically. You just need to switch Pages on:
+One click, no build setup needed — Pages serves the files directly (the
+`.nojekyll` file tells it to publish them as-is):
 
 1. Go to the repo on GitHub → **Settings → Pages**.
-2. Under **Build and deployment → Source**, choose **GitHub Actions**.
-3. Push/merge to the branch (already done) — the **Deploy to GitHub Pages**
-   workflow runs under the **Actions** tab and publishes the site.
-
-Your live URL will be:
+2. Under **Build and deployment → Source**, choose **Deploy from a branch**.
+3. Set **Branch** to `claude/save-the-date-website-xag5wb` (or `main` once you
+   merge) and the folder to **/ (root)**, then click **Save**.
+4. Wait ~1 minute and refresh. Your live URL will be:
 
 ```
 https://michael-chemistry.github.io/Michael_Lucia_wedding/
 ```
 
-> **Note:** GitHub Pages is free for **public** repositories. If this repo is
-> private, either make it public (Settings → General → *Change visibility*) or
-> use GitHub Pro. Alternatively, drag the repo folder onto
-> <https://app.netlify.com/drop> for instant free hosting.
+> **Note:** GitHub Pages is free for **public** repositories (this one is
+> public). If you ever make it private, you'd need GitHub Pro — or drag the repo
+> folder onto <https://app.netlify.com/drop> for instant free hosting instead.
 
 ---
 

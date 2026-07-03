@@ -17,7 +17,7 @@ per field, mail-merge ready).
 | `assets/styles.css` | Mobile-first, responsive styling |
 | `assets/script.js` | Required-field validation + submit to Google Sheets |
 | `google-apps-script/Code.gs` | The Google Apps Script that writes rows to your sheet |
-| `.github/workflows/deploy.yml` | Auto-deploys the site to GitHub Pages |
+| `.nojekyll` | Tells GitHub Pages to serve the files as-is |
 | **[`SETUP.md`](SETUP.md)** | **Step-by-step: connect Sheets + go live** |
 
 ## Features
@@ -31,7 +31,8 @@ per field, mail-merge ready).
 1. Follow **[`SETUP.md`](SETUP.md)** to:
    - create a Google Sheet + Apps Script Web App, and
    - paste its URL into `assets/script.js` (`FORM_ENDPOINT`).
-2. In the repo, **Settings → Pages → Source → GitHub Actions** to publish.
+2. In the repo, **Settings → Pages → Source → Deploy from a branch →**
+   `claude/save-the-date-website-xag5wb` **/ (root)** to publish.
 
 ## Personalize
 In `index.html` (marked near the top):
