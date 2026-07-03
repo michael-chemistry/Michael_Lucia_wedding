@@ -130,3 +130,35 @@ form.addEventListener("submit", async (event) => {
     setLoading(false);
   }
 });
+
+/* -------------------------------------------------------------------------
+   Hero scroll effect: as the content scrolls up over the fixed photo, gently
+   fade and drift the overlaid text so the reveal feels smooth. Transforms and
+   opacity only, so it stays cheap; respects reduced-motion.
+   ------------------------------------------------------------------------- */
+(function heroParallax() {
+  const heroText = document.querySelector(".hero__inner");
+  if (!heroText) return;
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const vh = window.innerHeight || 1;
+    const progress = Math.min(window.scrollY / (vh * 0.85), 1);
+    heroText.style.opacity = String(1 - progress);
+    if (!reduce) {
+      heroText.style.transform = "translateY(" + (window.scrollY * 0.18).toFixed(1) + "px)";
+    }
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+  }, { passive: true });
+
+  update();
+})();
