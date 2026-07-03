@@ -8,25 +8,25 @@
    ========================================================================= */
 
 :root {
-  --cream:       #ead4c4;  /* borders, hero band, dividers      */
-  --cream-bg:    #f7efe7;  /* page background (lightened cream)  */
-  --card:        #fffbf6;  /* form card                          */
-  --field:       #fbf4ec;  /* input background                   */
+  --cream:       #ead4c4;  /* dividers, hero band                */
+  --cream-bg:    #f8f1e9;  /* page background (lightened cream)  */
+  --card:        #ffffff;  /* form card, inputs                  */
+  --hair:        #e7dccf;  /* hairline borders                   */
 
   --brown:       #492f1e;  /* headings, body strong, button      */
   --brown-dark:  #35200f;
   --ink:         #4a3526;  /* body text                          */
-  --ink-soft:    #7c6152;  /* muted text                         */
+  --ink-soft:    #856a5a;  /* muted text, labels                 */
 
-  --rose:        #d3a5a5;  /* soft accent, rings, rules          */
-  --mauve:       #af7978;  /* accent, ampersand, borders         */
+  --rose:        #d3a5a5;  /* soft accent, focus ring            */
+  --mauve:       #af7978;  /* accent, ampersand, ornaments       */
   --mauve-deep:  #9a6260;  /* mauve used as readable text        */
-  --olive:       #7a7930;  /* botanical accent (check, details)  */
+  --olive:       #7a7930;  /* botanical accent (check)           */
   --olive-deep:  #5f5e27;  /* olive used as small text           */
 
   --error:       #a8432f;
-  --radius:      16px;
-  --shadow:      0 18px 40px -22px rgba(73, 47, 30, 0.5);
+  --radius:      14px;
+  --shadow:      0 14px 38px -24px rgba(73, 47, 30, 0.42);
 }
 
 *,
@@ -41,43 +41,69 @@ body {
   font-weight: 300;
   color: var(--ink);
   background:
-    radial-gradient(125% 80% at 50% -10%, var(--cream) 0%, var(--cream-bg) 58%) fixed;
+    radial-gradient(130% 78% at 50% -12%, var(--cream) 0%, var(--cream-bg) 60%) fixed;
   line-height: 1.65;
+  letter-spacing: 0.008em;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 .page {
   width: 100%;
-  max-width: 620px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: clamp(1.25rem, 5vw, 2.5rem) clamp(1.1rem, 5vw, 2rem)
-           calc(2rem + env(safe-area-inset-bottom, 0px));
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1.2rem, 5vw, 2rem)
+           calc(2.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* ------------------------------------------------------------ Ornament -- */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin: clamp(1.6rem, 6vw, 2.1rem) 0;
+}
+.ornament::before,
+.ornament::after {
+  content: "";
+  width: clamp(38px, 12vw, 62px);
+  height: 1px;
+  background: var(--hair);
+}
+.ornament span {
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  background: var(--mauve);
+  flex: 0 0 auto;
 }
 
 /* ---------------------------------------------------------------- Hero --- */
 .hero {
   text-align: center;
-  padding: clamp(1.5rem, 6vw, 3rem) 0 clamp(1.25rem, 5vw, 2rem);
+  padding: clamp(1rem, 5vw, 2.25rem) 0 clamp(0.5rem, 3vw, 1rem);
 }
 
 .eyebrow {
-  margin: 0 0 1.1rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.42em;
+  margin: 0 0 1.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.5em;
+  /* nudge right to visually centre the wide tracking */
+  text-indent: 0.5em;
   text-transform: uppercase;
   font-weight: 500;
   color: var(--olive-deep);
 }
 
-/* decorative rule under the eyebrow */
 .eyebrow::after {
   content: "";
   display: block;
-  width: 52px;
+  width: 40px;
   height: 1px;
-  margin: 0.9rem auto 0;
-  background: linear-gradient(90deg, transparent, var(--mauve), transparent);
+  margin: 1rem auto 0;
+  background: var(--mauve);
+  opacity: 0.6;
 }
 
 h1 {
@@ -85,98 +111,104 @@ h1 {
   font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   font-weight: 600;
   color: var(--brown);
-  line-height: 1.04;
+  line-height: 1.02;
 }
 
 .names {
   display: block;
-  font-size: clamp(2.9rem, 15vw, 4.6rem);
-  letter-spacing: 0.01em;
+  font-size: clamp(2.7rem, 14vw, 4.3rem);
+  letter-spacing: 0.005em;
 }
 
 .names .amp {
   color: var(--mauve);
   font-style: italic;
-  padding: 0 0.12em;
+  font-weight: 500;
+  padding: 0 0.1em;
 }
 
 .subhead {
   display: block;
-  margin-top: 0.4rem;
-  font-size: clamp(1.25rem, 6vw, 1.75rem);
+  margin-top: 0.55rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.2rem, 5.5vw, 1.6rem);
   font-weight: 500;
   font-style: italic;
+  letter-spacing: 0.01em;
   color: var(--brown);
 }
 
 .announcement {
-  margin-top: clamp(1.5rem, 6vw, 2.25rem);
-  font-size: 1.02rem;
+  margin-top: clamp(1.75rem, 6vw, 2.5rem);
+  max-width: 40ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  line-height: 1.78;
   color: var(--ink-soft);
 }
 
-.announcement p { margin: 0 0 1.1rem; }
+.announcement p { margin: 0 0 1.15rem; }
 
-.save-line {
-  margin: 1.6rem 0 !important;
-  padding: 1.1rem 1rem;
-  border-top: 1px solid var(--cream);
-  border-bottom: 1px solid var(--cream);
-}
+.save-line { margin: 0 !important; }
 
 .save-season {
   display: block;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.7rem, 8vw, 2.3rem);
+  font-size: clamp(1.8rem, 8vw, 2.4rem);
   font-weight: 600;
   color: var(--brown);
-  line-height: 1.15;
+  line-height: 1.12;
 }
 
 .save-place {
   display: block;
-  font-size: 0.82rem;
-  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-indent: 0.26em;
   text-transform: uppercase;
   color: var(--olive-deep);
-  margin-top: 0.35rem;
+  margin-top: 0.55rem;
 }
 
 .signoff {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
   font-size: 1.35rem;
+  line-height: 1.4;
   color: var(--mauve-deep);
-  margin-top: 1.6rem !important;
+  margin: 1.75rem 0 0 !important;
 }
 
 /* --------------------------------------------------------------- Form --- */
 .form-card {
   background: var(--card);
-  border: 1px solid var(--cream);
+  border: 1px solid var(--hair);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: clamp(1.4rem, 6vw, 2.25rem);
-  margin-top: 0.5rem;
+  padding: clamp(1.6rem, 6vw, 2.5rem);
+  margin-top: clamp(1.5rem, 6vw, 2.25rem);
 }
 
 .form-card h2 {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.4rem;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 600;
-  font-size: clamp(1.6rem, 7vw, 2rem);
+  font-size: clamp(1.7rem, 7vw, 2.1rem);
   color: var(--brown);
   text-align: center;
 }
 
 .form-intro {
-  margin: 0 0 1.6rem;
+  margin: 0 auto 1.9rem;
+  max-width: 30ch;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
   color: var(--ink-soft);
 }
 
-.field { margin-bottom: 1.15rem; }
+.field { margin-bottom: 1.25rem; }
 
 .field-row {
   display: flex;
@@ -187,17 +219,22 @@ h1 {
 
 label {
   display: block;
-  margin-bottom: 0.4rem;
-  font-size: 0.86rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--ink);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
 }
 
 .optional {
+  display: inline;
+  text-transform: none;
+  letter-spacing: 0.01em;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   color: var(--ink-soft);
+  opacity: 0.85;
 }
 
 input {
@@ -206,64 +243,66 @@ input {
   font-size: 16px;
   font-family: inherit;
   font-weight: 300;
+  letter-spacing: 0.01em;
   color: var(--ink);
-  padding: 0.8rem 0.9rem;
-  background: var(--field);
-  border: 1px solid var(--cream);
-  border-radius: 10px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  padding: 0.85rem 0.9rem;
+  background: var(--card);
+  border: 1px solid var(--hair);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
   -webkit-appearance: none;
   appearance: none;
 }
 
-input::placeholder { color: #b9a595; }
+input::placeholder { color: #c3b1a2; }
 
 input:focus {
   outline: none;
-  background: var(--card);
   border-color: var(--mauve);
-  box-shadow: 0 0 0 3px rgba(211, 165, 165, 0.35);
+  box-shadow: 0 0 0 3px rgba(211, 165, 165, 0.3);
 }
 
 input.invalid {
   border-color: var(--error);
-  background: #fbf1ee;
+  background: #fdf5f3;
 }
 input.invalid:focus {
-  box-shadow: 0 0 0 3px rgba(168, 67, 47, 0.18);
+  box-shadow: 0 0 0 3px rgba(168, 67, 47, 0.16);
 }
 
 .error {
   display: block;
   min-height: 1em;
-  margin-top: 0.3rem;
-  font-size: 0.78rem;
+  margin-top: 0.35rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.01em;
   color: var(--error);
 }
 
 .submit-btn {
   position: relative;
   width: 100%;
-  margin-top: 0.6rem;
+  margin-top: 0.9rem;
   padding: 0.95rem 1rem;
   font-family: "Jost", sans-serif;
-  font-size: 1rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.18em;
+  text-indent: 0.18em;
   text-transform: uppercase;
   color: var(--cream-bg);
   background: linear-gradient(180deg, var(--brown), var(--brown-dark));
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
   transition: transform 0.08s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-  box-shadow: 0 12px 24px -12px rgba(73, 47, 30, 0.7);
+  box-shadow: 0 12px 24px -16px rgba(73, 47, 30, 0.75);
 }
 
-.submit-btn:hover { box-shadow: 0 16px 28px -12px rgba(73, 47, 30, 0.8); }
+.submit-btn:hover { box-shadow: 0 16px 28px -16px rgba(73, 47, 30, 0.85); }
 .submit-btn:active { transform: translateY(1px); }
 .submit-btn:focus-visible {
-  outline: 3px solid var(--mauve);
+  outline: 2px solid var(--mauve);
   outline-offset: 2px;
 }
 
@@ -285,53 +324,55 @@ input.invalid:focus {
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .form-status {
-  margin: 0.9rem 0 0;
+  margin: 1rem 0 0;
   min-height: 1em;
   text-align: center;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--error);
 }
 
 /* ------------------------------------------------------- Confirmation --- */
 .confirmation {
   text-align: center;
-  padding: 1.5rem 0.5rem;
+  padding: 1.75rem 0.5rem 1rem;
   animation: rise 0.5s ease both;
 }
 
 .confirmation .check {
-  width: 68px;
-  height: 68px;
-  margin: 0 auto 1.1rem;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.3rem;
   display: grid;
   place-items: center;
-  font-size: 1.9rem;
+  font-size: 1.65rem;
   color: #fff;
   background: linear-gradient(180deg, var(--olive), var(--olive-deep));
   border-radius: 50%;
-  box-shadow: 0 14px 26px -12px rgba(95, 94, 39, 0.75);
+  box-shadow: 0 12px 24px -14px rgba(95, 94, 39, 0.7);
 }
 
 .confirmation h2 {
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.7rem;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 600;
-  font-size: clamp(1.8rem, 8vw, 2.3rem);
+  font-size: clamp(1.9rem, 8vw, 2.4rem);
   color: var(--brown);
 }
 
 .confirmation p {
-  margin: 0 auto 0.6rem;
-  max-width: 34ch;
+  margin: 0 auto 0.7rem;
+  max-width: 32ch;
+  font-size: 0.98rem;
+  line-height: 1.7;
   color: var(--ink-soft);
 }
 
 .confirmation-signoff {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: var(--mauve-deep);
-  margin-top: 0.4rem !important;
+  margin-top: 0.5rem !important;
 }
 
 @keyframes rise {
@@ -341,19 +382,19 @@ input.invalid:focus {
 
 /* ------------------------------------------------------------- Footer --- */
 .footer {
-  margin-top: 1.75rem;
+  margin-top: 2rem;
   text-align: center;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-indent: 0.24em;
   text-transform: uppercase;
   color: var(--olive-deep);
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 /* --------------------------------------------------- Larger screens --- */
 @media (min-width: 560px) {
-  .page { padding-top: 2.5rem; }
-  .announcement { font-size: 1.08rem; }
+  .announcement { font-size: 1.05rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
