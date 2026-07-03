@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Michael &amp; Lucia — Save the Date</title>
+  <meta name="description" content="Michael & Lucia are getting married. Save the date and send us your details." />
+
+  <!-- Social share preview -->
+  <meta property="og:title" content="Michael & Lucia are getting married!" />
+  <meta property="og:description" content="Save the date — and help us get your invite to the right address." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#7c3a4d" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <main class="page">
+    <!-- ============================================================
+         ANNOUNCEMENT
+         Personalize the bracketed lines below (see README.md).
+         ============================================================ -->
+    <section class="hero" aria-labelledby="headline">
+      <p class="eyebrow">Save the Date</p>
+      <h1 id="headline">
+        <span class="names">Michael <span class="amp">&amp;</span> Lucia</span>
+        <span class="subhead">are getting married!</span>
+      </h1>
+
+      <div class="announcement">
+        <p>
+          After all these wonderful years together, we said yes — and we
+          couldn&rsquo;t be more excited to celebrate with the people we love.
+          The official invitation is on its way, but first we&rsquo;re getting
+          our details in order.
+        </p>
+        <p class="save-line">
+          <span class="save-season">Fall 2026</span>
+          <span class="save-place">in the Hudson Valley, New York</span>
+        </p>
+        <p>
+          Would you help us out by filling in a few quick details below? It
+          takes about a minute and makes sure your invite lands in the right
+          hands.
+        </p>
+        <p class="signoff">With love,<br />Michael &amp; Lucia</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RSVP / DETAILS FORM
+         ============================================================ -->
+    <section class="form-card" aria-labelledby="form-title">
+      <h2 id="form-title">Send us your details</h2>
+      <p class="form-intro">All fields are required so your invitation reaches you.</p>
+
+      <form id="rsvp-form" novalidate>
+        <div class="field">
+          <label for="fullName">Your full name</label>
+          <input id="fullName" name="fullName" type="text" autocomplete="name"
+                 required placeholder="Jordan Rivera" />
+          <span class="error" data-for="fullName"></span>
+        </div>
+
+        <div class="field">
+          <label for="partnerName">
+            Partner / guest full name
+            <span class="optional">— leave blank if you&rsquo;re coming solo</span>
+          </label>
+          <input id="partnerName" name="partnerName" type="text"
+                 autocomplete="off" placeholder="Sam Rivera" />
+          <span class="error" data-for="partnerName"></span>
+        </div>
+
+        <div class="field">
+          <label for="street">Street address</label>
+          <input id="street" name="street" type="text" autocomplete="street-address"
+                 required placeholder="123 Maple Street, Apt 4" />
+          <span class="error" data-for="street"></span>
+        </div>
+
+        <div class="field">
+          <label for="city">City</label>
+          <input id="city" name="city" type="text" autocomplete="address-level2"
+                 required placeholder="Brooklyn" />
+          <span class="error" data-for="city"></span>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="state">State / Province</label>
+            <input id="state" name="state" type="text" autocomplete="address-level1"
+                   required placeholder="NY" />
+            <span class="error" data-for="state"></span>
+          </div>
+          <div class="field">
+            <label for="zip">ZIP / Postal code</label>
+            <input id="zip" name="zip" type="text" autocomplete="postal-code"
+                   inputmode="numeric" required placeholder="11201" />
+            <span class="error" data-for="zip"></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="country">Country</label>
+          <input id="country" name="country" type="text" autocomplete="country-name"
+                 required placeholder="United States" />
+          <span class="error" data-for="country"></span>
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email"
+                 required placeholder="jordan@example.com" />
+          <span class="error" data-for="email"></span>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span class="btn-label">Send our details</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+
+        <p class="form-status" id="form-status" role="alert" aria-live="polite"></p>
+      </form>
+
+      <!-- Confirmation, revealed after a successful submit -->
+      <div class="confirmation" id="confirmation" hidden>
+        <div class="check" aria-hidden="true">&#10003;</div>
+        <h2>Thanks — see you soon!</h2>
+        <p>
+          Your details are in. Keep an eye on your inbox &mdash; the official
+          invitation is on its way.
+        </p>
+        <p class="confirmation-signoff">With love, Michael &amp; Lucia</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Michael &amp; Lucia &middot; Fall 2026</p>
+    </footer>
+  </main>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

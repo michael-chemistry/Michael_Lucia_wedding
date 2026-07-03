@@ -1,0 +1,10 @@
+# macOS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# local dev deps (render test)
+node_modules/
+package-lock.json
